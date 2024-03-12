@@ -10,11 +10,11 @@ create table if not exists Transakcje
     TransactionDate (DATETIME, NOT NULL)
     */
 
-    id      int primary key auto_increment not null unique,
-    order_id       int                            not null,
+    id               int primary key auto_increment not null unique,
+    order_id         int                            not null,
     foreign key (order_id) references zamowienia (id),
-    paymentMethod_id       int                            not null,
-    foreign key (paymentMethod_id) references metodyPlatnosci (id),
-    amount              decimal(10,2)                         not null,
-    transaction_date         DATETIME                         not null
+    paymentMethod_id int                            not null,
+    foreign key (paymentMethod_id) references metodyplatnosci (id),
+    amount           decimal(10, 2)                 not null,
+    transaction_date DATETIME                       not null
 )
