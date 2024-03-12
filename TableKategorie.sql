@@ -1,9 +1,10 @@
+drop table if exists Kategorie;
 create table if not exists Kategorie
 (
     /*
     Kategorie (Categories):
-    CategoryID (INT, PRIMARY KEY)
-    Name (VARCHAR)
+    CategoryID (INT, PRIMARY KEY, NOT NULL, UNIQUE)
+    Name (VARCHAR, NOT NULL, UNIQUE)
     ParentCategoryID (INT, FOREIGN KEY REFERENCES Categories(CategoryID))
     */
 
@@ -11,5 +12,5 @@ create table if not exists Kategorie
     name             VARCHAR(30)                    not null,
     parentCategoryID int,
     foreign key (parentCategoryID) references
-        Kategorie (id)
+        kategorie (id)
 )
