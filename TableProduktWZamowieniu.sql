@@ -16,5 +16,5 @@ create table if not exists ProduktWZamowieniu
     product_id       int                            not null,
     foreign key (product_id) references produkty (id),
     quantity       int                            not null,
-    price              decimal(10,2)              not null,
+    price              decimal(10,2)              not null
 )
