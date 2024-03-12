@@ -85,7 +85,12 @@ ProductID (INT, FOREIGN KEY REFERENCES Products(ProductID), NOT NULL)
 Quantity (INT, NOT NULL)
 Price (DECIMAL, NOT NULL)
 
-13. Transakcje (Transactions):
+13. Metody płatności (PaymentMethods):
+PaymentMethodID (INT, PRIMARY KEY, NOT NULL, UNIQUE)
+Name (VARCHAR, NOT NULL, UNIQUE)
+Description (TEXT, NOT NULL)
+
+14. Transakcje (Transactions):
 TransactionID (INT, PRIMARY KEY, NOT NULL, UNIQUE)
 OrderID (INT, FOREIGN KEY REFERENCES Orders(OrderID), NOT NULL, UNIQUE)
 PaymentMethodID (INT, FOREIGN KEY REFERENCES PaymentMethods(PaymentMethodID), NOT NULL)
@@ -100,18 +105,18 @@ TransactionDate (DATETIME, NOT NULL)
 -- StartDate (DATE, NOT NULL)
 -- EndDate (DATE)
 
-14. Punkty lojalnościowe (LoyaltyPoints):
+15. Punkty lojalnościowe (LoyaltyPoints):
 LoyaltyPointID (INT, PRIMARY KEY, NOT NULL, UNIQUE)
 CustomerID (INT, FOREIGN KEY REFERENCES Customers(CustomerID), NOT NULL)
 Points (INT, NOT NULL)
 ExpiryDate (DATE, NOT NULL)
 
-15. Ocena produktu (ProductRating):
+16. Ocena produktu (ProductRating):
 ProductRatingID (INT, PRIMARY KEY, NOT NULL, UNIQUE)
 ProductID (INT, FOREIGN KEY REFERENCES Products(ProductID), NOT NULL)
 ClientID (INT,  FOREIGN KEY REFERENCES Customers(CustomerID), NOT NULL)
 Rating (DECIMAL)
-Description (VARCHAR, NOT NULL)
+Description (TEXT, NOT NULL)
 
-Total - 15
+Total - 16 tabel
 */
