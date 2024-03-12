@@ -10,11 +10,11 @@ create table if not exists OcenaProduktu
     Description (VARCHAR, NOT NULL)
     */
 
-    id      int primary key auto_increment not null unique,
-    product_id       int                            not null,
+    id          int primary key auto_increment not null unique,
+    product_id  int                            not null,
     foreign key (product_id) references produkty (id),
-    client_id    int,
+    client_id   int,
     foreign key (client_id) references klienci (id),
-    rating          decimal(10, 2),
-    description         varchar                     not null
+    rating      decimal(10, 2),
+    description text                           not null
 )
