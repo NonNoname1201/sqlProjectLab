@@ -1,5 +1,5 @@
-drop table if exists ProduktWZamowieniu;
-create table if not exists ProduktWZamowieniu
+drop table if exists Zamowienia;
+create table if not exists Zamowienia
 (
     /*
     Zamówienia (Orders):
