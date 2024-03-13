@@ -1,0 +1,72 @@
+Zadanie 3.1. Zapytania
+Dla bazy utworzonej bazy danych wymyśl 10 zapytań. W pliku txt umieść treść
+zapytania oraz zapytanie. Zapytania mają używać zarówno jednej tabeli jak i kilku tabel.
+Niektóre zapytania mają używać funkcji agregujących
+
+//jedna tabela
+SELECT * from klienci;
+select * from pracownicy;
+select * from klienci where imie like 'A%' and nazwisko like 'S%';
+select * from zamowienia where data_zamowienia between '2012-01-01' and '2012-12-31' and id_pracownika = 3;
+select * from produkty where cena between 10 and 20 and id_producenta = 2;
+
+//kilka tabeli
+select k.imie, k.nazwisko, z.data_zamowienia from klienci k join zamowienia z on k.id_klienta = z.id_klienta;
+select p.imie, p.nazwisko, z.data_zamowienia from pracownicy p join zamowienia z on p.id_pracownika = z.id_pracownika;
+
+//funkcje agregujące
+select count(*) from klienci;
+select count(*) from pracownicy;
+select count(*) from zamowienia;
+
+Zadanie 3.2. Użytkownicy
+Dla bazy stworzonej utwórz trzech użytkowników nadając im różne uprawnienia.
+Przetestuj wszystkich użytkowników.
+
+CREATE USER 'user1'@'localhost' IDENTIFIED BY 'user1';
+GRANT SELECT ON shop.* TO 'user1'@'localhost';
+
+CREATE USER 'user2'@'localhost' IDENTIFIED BY 'user2';
+GRANT INSERT ON shop.* TO 'user2'@'localhost';
+
+CREATE USER 'user3'@'localhost' IDENTIFIED BY 'user3';
+GRANT DELETE ON shop.* TO 'user3'@'localhost';
+
+
+Zadanie 3.3. Import danych
+Stwórz plik csv i zapisz do niego dane w taki sposób, aby można było je zaimportować do
+wybranej tabeli.
+
+//export danych
+SELECT * INTO OUTFILE 'C:/tools/mysql/current/safedir/data.csv'
+FIELDS TERMINATED BY ','
+ENCLOSED BY '"'
+LINES TERMINATED BY '\n'
+FROM klienci;
+
+//import danych
+SET FOREIGN_KEY_CHECKS = 0;
+TRUNCATE TABLE klienci;
+SET FOREIGN_KEY_CHECKS = 1;
+LOAD DATA INFILE 'C:/tools/mysql/current/safedir/data.csv'
+INTO TABLE klienci
+FIELDS TERMINATED BY ','
+ENCLOSED BY '"'
+LINES TERMINATED BY '\n'
+IGNORE 1 LINES;
+
+Zadanie 3.4. Eksport bazy danych
+Wykonaj kopię zapasową całej bazy danych.
+
+//eksport bazy danych, działający w cmd
+mysqldump -u root -p shop > C:\tools\mysql\current\safedir\shop.sql
+
+Zadanie 3.5. Import bazy danych
+Zaimportuj wyeksportowaną bazę danych
+ a do nazwy bazy danej dodaj _test.
+
+//import bazy danych
+CREATE DATABASE shop_test;
+USE shop_test;
+SOURCE C:/tools/mysql/current/safedir/shop.sql;
+
