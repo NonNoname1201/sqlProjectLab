@@ -32,6 +32,8 @@ GRANT INSERT ON shop.* TO 'user2'@'localhost';
 CREATE USER 'user3'@'localhost' IDENTIFIED BY 'user3';
 GRANT DELETE ON shop.* TO 'user3'@'localhost';
 
+SELECT User, Host FROM mysql.db WHERE Db = 'shop';
+SELECT User, Host FROM mysql.user;
 
 Zadanie 3.3. Import danych
 Stwórz plik csv i zapisz do niego dane w taki sposób, aby można było je zaimportować do
@@ -69,4 +71,3 @@ Zaimportuj wyeksportowaną bazę danych
 CREATE DATABASE shop_test;
 USE shop_test;
 SOURCE C:/tools/mysql/current/safedir/shop.sql;
-
