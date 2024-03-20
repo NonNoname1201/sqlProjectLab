@@ -10,3 +10,12 @@ PREPARE stmt FROM @tables;
 EXECUTE stmt;
 DEALLOCATE PREPARE stmt;
 SET FOREIGN_KEY_CHECKS = 1;
+
+# -- Drop the existing database
+# DROP DATABASE shop;
+#
+# -- Create a new database with the same name
+# CREATE DATABASE shop;
+#
+# -- Use the new database
+# USE shop;
