@@ -118,5 +118,15 @@ ClientID (INT,  FOREIGN KEY REFERENCES Customers(CustomerID), NOT NULL)
 Rating (DECIMAL)
 Description (TEXT, NOT NULL)
 
-Total - 16 tabel
+17. Adres (Address):
+AddressID (INT PRIMARY KEY NOT NULL)
+ClientID (INT FOREIGN KEY REFERENCES Customers(CustomerID) NOT NULL)
+Street (VARCHAR(255) NOT NULL)
+City (VARCHAR(100) NOT NULL)
+State (VARCHAR(100) NOT NULL)
+PostalCode (VARCHAR(20) NOT NULL)
+Country (VARCHAR(100) NOT NULL)
+
+
+Total - 17 tabel
 */
