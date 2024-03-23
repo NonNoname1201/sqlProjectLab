@@ -11,7 +11,7 @@ CountryID (INT, FOREIGN KEY REFERENCES Countries(CountryID), NOT NULL)
 
 Address (Address):
 AddressID (INT PRIMARY KEY NOT NULL)
-PostalCode (VARCHAR(20) NOT NULL)
+PostalCode (VARCHAR(5) NOT NULL)
 Street (VARCHAR(255) NOT NULL)
 CityID (INT, FOREIGN KEY REFERENCES Cities(CityID), NOT NULL)
 State (VARCHAR(100))
@@ -64,7 +64,12 @@ BrandID (INT, FOREIGN KEY REFERENCES Brands(BrandID), NOT NULL)
 CategoryID (INT, FOREIGN KEY REFERENCES Categories(CategoryID))
 Description (TEXT, NOT NULL)
 Price (DECIMAL, NOT NULL)
-StockQuantity (INT, NOT NULL)
+
+ProductInStock (ProductInStock):
+ProductInStockID (INT, PRIMARY KEY, NOT NULL, UNIQUE)
+ProductID (INT, FOREIGN KEY REFERENCES Products(ProductID), NOT NULL)
+StoreID (INT, FOREIGN KEY REFERENCES Stores(StoreID), NOT NULL)
+Quantity (INT, NOT NULL)
 
 Users (Users):
 UserID (INT, PRIMARY KEY, NOT NULL, UNIQUE)
