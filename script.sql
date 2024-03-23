@@ -96,7 +96,6 @@ UserID (INT, FOREIGN KEY REFERENCES Users(UserID), NOT NULL)
 OrderDate (DATETIME, NOT NULL)
 ShipDate (DATETIME)
 Status (ENUM('pending', 'shipping', 'delivered'), NOT NULL)
-TotalAmount (DECIMAL, NOT NULL)
 
 OrderProducts (OrderProducts):
 OrderProductID (INT, PRIMARY KEY, NOT NULL, UNIQUE)
@@ -119,6 +118,7 @@ TransactionDate (DATETIME, NOT NULL)
 Checkouts (Checkouts):
 CheckoutID (INT, PRIMARY KEY, NOT NULL, UNIQUE)
 CustomerID (INT, FOREIGN KEY REFERENCES Customers(CustomerID), NOT NULL)
+PaymentMethodID (INT, FOREIGN KEY REFERENCES PaymentMethods(PaymentMethodID), NOT NULL)
 TotalAmount (DECIMAL, NOT NULL)
 CheckoutDate (DATETIME, NOT NULL)
 
@@ -130,23 +130,23 @@ Quantity (INT, NOT NULL)
 
 Promotions (Promotions):
 PromotionID (INT, PRIMARY KEY, NOT NULL, UNIQUE)
-Name (VARCHAR, NOT NULL)
-Description (TEXT, NOT NULL)
+ProductID (INT, FOREIGN KEY REFERENCES Products(ProductID), NOT NULL)
+Discount (DECIMAL, NOT NULL)
 StartDate (DATE, NOT NULL)
 EndDate (DATE)
-
-LoyaltyPoints (LoyaltyPoints):
-LoyaltyPointID (INT, PRIMARY KEY, NOT NULL, UNIQUE)
-UserID (INT, FOREIGN KEY REFERENCES Users(UserID), NOT NULL)
-Points (INT, NOT NULL)
-ExpiryDate (DATE, NOT NULL)
 
 ProductRating (ProductRating):
 ProductRatingID (INT, PRIMARY KEY, NOT NULL, UNIQUE)
 ProductID (INT, FOREIGN KEY REFERENCES Products(ProductID), NOT NULL)
 UserID (INT, FOREIGN KEY REFERENCES Users(UserID), NOT NULL)
-Rating (DECIMAL)
-Description (TEXT, NOT NULL)
+Rating (DECIMAL, NOT NULL)
+Description (TEXT)
 
-Total - 22 tables
+TotalProductRating (TotalProductRating):
+TotalProductRatingID (INT, PRIMARY KEY, NOT NULL, UNIQUE)
+ProductID (INT, FOREIGN KEY REFERENCES Products(ProductID), NOT NULL)
+TotalRating (DECIMAL, NOT NULL)
+TotalVotes (INT, NOT NULL)
+
+Total - 23 tables
 */
