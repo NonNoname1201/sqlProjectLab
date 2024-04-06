@@ -1,4 +1,3 @@
-drop table if exists cart_products;
 create table cart_products
 (
     /*
