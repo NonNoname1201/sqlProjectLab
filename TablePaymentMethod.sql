@@ -1,5 +1,4 @@
-drop table if exists MetodyPlatnosci;
-create table MetodyPlatnosci
+create table payment_methods
 (
     /*
     13. Metody płatności (PaymentMethods):

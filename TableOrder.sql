@@ -1,5 +1,4 @@
-drop table if exists Zamowienia;
-create table if not exists Zamowienia
+create table order
 (
     /*
     Zamówienia (Orders):
@@ -14,11 +13,11 @@ create table if not exists Zamowienia
 
     id      int primary key auto_increment not null unique,
     customer_id       int                            not null,
-    foreign key (customer_id) references klienci (id),
+    foreign key (customer_id) references customers (id),
     store_id       int                            not null,
-    foreign key (store_id) references sklepy (id),
-    orderDate       DATETIME                            not null,
-    shipDate        DATETIME,
+    foreign key (store_id) references stores (id),
+    order_date       DATETIME                            not null,
+    ship_date        DATETIME,
     status          ENUM('pending', 'shipping', 'delivered')    not null,
-    totalAmount     DECIMAL(38,3)                       not null
+    total_amount     DECIMAL(38,3)                       not null
 )
