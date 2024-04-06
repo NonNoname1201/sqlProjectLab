@@ -9,7 +9,7 @@ create table orders
         Status (ENUM('pending', 'shipping', 'delivered'), NOT NULL)
     */
 
-    order_id   int primary key auto_increment not null unique,
+    id   int primary key auto_increment not null unique,
     user_id    int                              not null,
     order_date datetime                         not null,
     ship_date  datetime,
