@@ -1,5 +1,4 @@
-drop table if exists PunktyLojalnosciowe;
-create table if not exists PunktyLojalnosciowe
+create table loyalty_points
 (
     /*
     Punkty lojalnościowe (LoyaltyPoints):
@@ -11,7 +10,7 @@ create table if not exists PunktyLojalnosciowe
 
     id      int primary key auto_increment not null unique,
     customer_id       int                            not null,
-    foreign key (customer_id) references klienci (id),
+    foreign key (customer_id) references customers (id),
     points              int                         not null,
     expiry_date         date                        not null
 )
