@@ -14,7 +14,7 @@ create table promotions
     discount            decimal(10, 2)                  not null,
     start_date          date                            not null,
     end_date            date,
-    foreign key (product_id ) references TableProducts(product_id)
+    foreign key (product_id ) references products(id)
 );
 
 insert into  promotions (product_id, discount, start_date, end_date)

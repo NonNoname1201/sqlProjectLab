@@ -14,8 +14,8 @@ create table transactions
     payment_method_id  INT NOT NULL,
     amount             DECIMAL NOT NULL,
     transaction_date   DATETIME NOT NULL,
-    FOREIGN KEY (order_id) REFERENCES TableOrders(order_id),
-    FOREIGN KEY (payment_method_id) REFERENCES TablePaymentMethods(paymentmethod_id)
+    FOREIGN KEY (order_id) REFERENCES orders(id),
+    FOREIGN KEY (payment_method_id) REFERENCES payment_methods(id)
 );
 
 insert into transactions (order_id, payment_method_id, amount, transaction_date)

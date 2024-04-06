@@ -17,7 +17,7 @@ create table users
     phone       varchar(15)                     unique,
     address_id  int                             not null unique,
     role        enum ('admin', 'user')          not null,
-    foreign key (address_id) references address(id)
+    foreign key (address_id) references addresses(id)
 );
 
 INSERT INTO users (username, password, email, phone, address_id, role)

@@ -11,7 +11,7 @@ create table payment_methods
     description text                           not null
 );
 
-insert into positions (name, description) values
+insert into payment_methods (name, description) values
 ('Przelew', 'Przelew bankowy'),
 ('Visa', 'Płatność kartą'),
 ('Master Card', 'Płatność kartą'),
