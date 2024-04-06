@@ -15,3 +15,9 @@ create table cart_products
     quantity   int                            not null
 
 );
+
+insert into cart_products (user_id, product_id, quantity)
+values (1, 1, 1),
+       (1, 2, 2),
+       (2, 1, 3),
+       (2, 2, 4);
